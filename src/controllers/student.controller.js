@@ -2,6 +2,8 @@ import jwt  from "jsonwebtoken";
 import { Student } from "../models/student.model.js";
 import bcrypt from "bcryptjs";
 
+
+
 export const createStudent = async (req ,res ) =>{
  try {
    const {firstName, lastName,email,password} = req.body;
@@ -30,7 +32,7 @@ export const loginStudent = async (req,res) => {
         if(!token){
           res.status(403).json({message:"invalid token"})
         }else{
-          res.status(201).json({message:"login succefully!"})
+          res.status(201).json({message:"login succefully!",token , student})
         }
     }
   
@@ -42,3 +44,13 @@ export const loginStudent = async (req,res) => {
   }
 }
 
+ export const verificationToken = token =>{
+  jwt.verify(token, process.env.SECRET_KEY,(err,decoded) =>{
+  if (err) {
+    console.log("invalid or expired token:", err.message);
+  }else{
+    console.log("Decoded user info" , decoded)
+  }
+})
+
+ }
