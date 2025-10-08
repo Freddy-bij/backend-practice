@@ -1,6 +1,7 @@
 import jwt  from "jsonwebtoken";
 import { Student } from "../models/student.model.js";
 import bcrypt from "bcryptjs";
+import { generateToken } from "../utils/jwt.js";
 
 
 
@@ -28,12 +29,8 @@ export const loginStudent = async (req,res) => {
     if(!comparePassword){
       res.status(403).json({message:"incorrect password"})
     }else{   
-      const token = jwt.sign({student:student},process.env.SECRET_KEY,{expiresIn:"1d"})
-        if(!token){
-          res.status(403).json({message:"invalid token"})
-        }else{
-          res.status(201).json({message:"login succefully!",token , student})
-        }
+      const token = generateToken(existingUser)
+       return {token,existingUser}
     }
   
   }
