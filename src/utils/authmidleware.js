@@ -10,7 +10,7 @@ import jwt from "jsonwebtoken"
         return res.status(401).json({ message: "unauthorized: invalid Token Format"});
     }
     jwt.verify(token, process.env.SECRET_KEY, (err, user) =>{
-        if(error) {
+        if(err) {
             return res.status(403).json({ message: "Forbidden: invalid Token"});
         }
         req.user = user;
@@ -19,6 +19,6 @@ import jwt from "jsonwebtoken"
     
 }
 
-export const verifyToken = token => {
+export const verifyToken = (token) => {
     return jwt.verify(token, process.env.SECRET_KEY)
 }
