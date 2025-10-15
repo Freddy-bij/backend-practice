@@ -4,7 +4,7 @@ export const createStudentInfo = async ( req , res) => {
     const { age , address, classe, phone, rollNumber , section } = req.body;
     const {student} = req.body
     try {
-        const studentInfo = await InformationStudent.create({
+        const informations = await InformationStudent.create({
             age,
             address,
             classe,
@@ -13,9 +13,43 @@ export const createStudentInfo = async ( req , res) => {
             section,
             student
         });
-        res.status(201).json({ studentInfo, message: "student information submitted successfully!"});
+        res.status(201).json({ informations, message: "student information submitted successfully!"});
 
     } catch (error) {
         res.status(500).json({ message: error.message})
+    }
+}
+
+export const getAllStudentInfo = async (req, res) => {
+    try{
+       const studentInfos = await InformationStudent.find({})
+       res.status(200).json(studentInfos)
+    }catch(error){
+        res.status(500).json({ message: error.message})
+    }
+}
+
+export const getStudentInfo = async (req,res) =>{
+try {
+    const {id}= req.params;
+    const studentInfo = await InformationStudent.findById(id)
+    res.status(200).json(studentInfo)
+} catch (error) {
+    res.status(500).json({ message: error.message})
+}
+}
+
+export const uppdateStudentInfo  = async (req, res) =>{
+    try {
+        const {id} = req.params
+        const status = req.body
+
+        const updateInfo = await InformationStudent.findByIdAndUpdate(id, {status}, {new:true})
+        if(!updateInfo){
+            return res.status(404).json({message: "student information not found"})
+        }
+        res.status(200).json(updateInfo)
+    } catch (error) {
+        
     }
 }
