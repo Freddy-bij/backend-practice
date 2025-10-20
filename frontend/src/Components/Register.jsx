@@ -12,21 +12,21 @@ const Register = () => {
             <form className="flex flex-col ">
 
                <div className="flex  relative">
-                <CiUser className="absolute  left-2 top-1" />
-                   <input className="border mb-2 pl-7 relative rounded outline-none " placeholder="Enter your last name"   />
+                <CiUser className="absolute  left-2 top-2.5" />
+                   <input className="border mb-2 pl-7 py-2 w-full placeholder-gray-300 text-sm relative rounded outline-none " placeholder="Enter your last name"   />
                </div>
-                  <div className="flex  relative">
-                < MdOutlineEmail  className="absolute  left-2 top-1" />
-                   <input className="border mb-2 pl-7 rounded outline-none " placeholder="Enter your email"/> 
+                  <div className="flex    relative">
+                < MdOutlineEmail  className="absolute  left-2 top-2.5" />
+                   <input className="border mb-2 pl-7 py-2 rounded text-sm w-full placeholder-text-gray-300 outline-none " placeholder="Enter your email"/> 
                </div>
                 <div className="flex  relative">
-                <CiLock className="absolute  left-2 top-1" />
-                  <input className="border mb-2 pl-7 rounded outline-none " placeholder="Enter your password"   />
+                <CiLock className="absolute  left-2 top-2.5" />
+                  <input className="border mb-2 pl-7 text-sm py-2 rounded outline-none " placeholder="Enter your password"   />
                </div>
                 
                
                 <button className="bg-blue-700 py-1.5 rounded hover:bg-blue-800">signUp</button>
-                <p className="text-center text-sm py-1">have you an acount?<span className="text-gray-950 underline underline-offset-2">signIn</span></p> 
+                <p className="text-center text-sm py-1">have you an acount?<span className="text-gray-950 hover:underline underline-offset-2 ">signIn</span></p> 
             </form>
                
         </div>
