@@ -1,6 +1,5 @@
 import { CiUser } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
-import { FaLock } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
 import { useNavigate } from "react-router";
 import { useState } from "react";
@@ -8,7 +7,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormDate] = useState({
     firstName: "",
-    lastNAme: "",
+    lastName: "",
     email: "",
     password: "",
   });
@@ -62,10 +61,10 @@ const Register = () => {
                 <div className="flex  relative">
                 <CiUser className="absolute  left-2 top-2.5" />
                    <input 
-                   type="text"
-                   name="lastNAme"
-                   value={formData.lastNAme}
-                   onChange={handleChange}
+                     type="text"
+                     name="lastName"
+                     value={formData.lastName}
+                     onChange={handleChange}
                    className="border mb-2 pl-7 py-2 w-full placeholder-gray-300 text-sm relative rounded outline-none " placeholder="Enter your last name"   />
                </div>
                   <div className="flex    relative">
