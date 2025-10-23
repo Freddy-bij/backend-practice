@@ -1,7 +1,7 @@
 import { CiUser } from "react-icons/ci";
 import { MdOutlineEmail } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 const Register = () => {
   const navigate = useNavigate();
@@ -32,13 +32,16 @@ const Register = () => {
     });
     const data = await response.json();
     console.log(data);
-    navigate("/dashboard"); 
+    navigate("/login"); 
   } catch (error) {
     console.error(error);
   }
 }
   return (
-    <div className=" bg-gray-800/30">
+    <div className='bg-gradient-to-r from-gray-500 to-purple-500 via-blue-400 h-screen'>
+        <div className='flex flex-col justify-center items-center h-4/5 text-white '>
+
+       <div className=" bg-gray-800/30">
       
         <div className="p-5">
 
@@ -88,11 +91,15 @@ const Register = () => {
                 
                
                 <button className="bg-blue-700 py-1.5 rounded hover:bg-blue-800">signUp</button>
-                <p className="text-center text-sm py-1">have you an acount?<span className="text-gray-950 hover:underline underline-offset-2 ">signIn</span></p> 
+                <p className="text-center text-sm py-1">have you an acount? <Link to="login"><span className="text-gray-950 hover:underline underline-offset-2 ">signIn</span></Link></p> 
             </form>
                
         </div>
     </div>
+    </div>
+    </div>
+  
+   
   )
 }
 
