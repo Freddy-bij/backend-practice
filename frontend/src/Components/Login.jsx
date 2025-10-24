@@ -4,9 +4,6 @@ import { Link, useNavigate } from "react-router"
 import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 
-
-
-
 const Login = () => {
   const navigate = useNavigate();
   const {login }= useAuth();
