@@ -16,22 +16,15 @@ const enrollmentData = [
 
 const EnrollmentChart = () => {
   return (
-    <Card>
-      <CardHeader>
+    <div>
+      <div>
         <CardTitle>Enrollment Trend</CardTitle>
         <CardDescription>Student enrollment over the past 8 months</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer
-          config={{
-            students: {
-              label: "Students",
-              color: "hsl(var(--chart-1))",
-            },
-          }}
-          className="h-[300px]"
+      </div>
+      <div>
+        <div className="h-[300px]"
         >
-          <ResponsiveContainer width="100%" height="100%">
+          <div >
             <LineChart data={enrollmentData}>
               <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
               <XAxis dataKey="month" className="text-xs" tick={{ fill: "hsl(var(--muted-foreground))" }} />
@@ -45,10 +38,10 @@ const EnrollmentChart = () => {
                 dot={{ fill: "hsl(var(--chart-1))", r: 4 }}
               />
             </LineChart>
-          </ResponsiveContainer>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

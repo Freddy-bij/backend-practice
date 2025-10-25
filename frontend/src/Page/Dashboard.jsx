@@ -1,10 +1,12 @@
+
 import Header from "../Components/Header"
+import Recharts from "../Components/Recharts"
 import StatsCards from "../Components/StatsCards"
 
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-blue-200 ">
+    <div className="min-h-screen bg-blue-100 ">
       <Header/>
        <main className="container mx-auto p-6 space-y-6">
         <div>
@@ -15,7 +17,9 @@ const Dashboard = () => {
         <StatsCards />
 
         <div className="grid gap-6 md:grid-cols-2">
-          {/* <EnrollmentChart /> */}
+          <Recharts/>
+       
+
           {/* <GradeDistributionChart /> */}
         </div>
 
