@@ -1,4 +1,4 @@
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 const data = [
   { month: "Jan", students: 1150 },
@@ -13,33 +13,25 @@ const data = [
 
 const Recharts = () => {
   return (
-    <div className='bg-white  rounded-2xl'>
+     <div className='bg-white rounded-2xl'>
       <div>
         <h1>Enrollment Trend</h1>
         <p>Student enrollment over the past 8 months</p>
       </div>
-      <div className=' m-4 '>
-        <div>
-           <LineChart  data={data}>
-      <Line
-        type="monotone"
-        dataKey="students"
-        stroke='#2196F3'
-        strokeWidth={2}
-      />
-
-      <CartesianGrid strokeDasharray="3 3 " />
-      <XAxis dataKey='month' />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-    </LineChart>
-        </div>
-       
+      <div className='m-4 h-64'> 
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <Line type="monotone" dataKey="students" stroke='#2196F3' strokeWidth={2} />
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey='month' />
+            <YAxis tick={{ fill: "hsl(var(--muted-foreground))" }} />
+            <Tooltip />
+            <Legend />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
-   
-
     </div>
+
  
   )
 }

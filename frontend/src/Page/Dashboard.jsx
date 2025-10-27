@@ -1,7 +1,10 @@
 
+import GradeDistribution from "../Components/GradeDistribution"
 import Header from "../Components/Header"
 import Recharts from "../Components/Recharts"
 import StatsCards from "../Components/StatsCards"
+import TableStudentsData from "../Components/TableStudentsData"
+
 
 
 const Dashboard = () => {
@@ -11,19 +14,16 @@ const Dashboard = () => {
        <main className="container mx-auto p-6 space-y-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-balance">Student Data</h1>
-          <p className="text-muted-foreground mt-2">Comprehensive overview of student information and analytics</p>
+          <p className="text-muted-foreground mt-2 text-gray-500">Comprehensive overview of student information and analytics</p>
         </div>
 
         <StatsCards />
 
         <div className="grid gap-6 md:grid-cols-2">
           <Recharts/>
-       
-
-          {/* <GradeDistributionChart /> */}
+          <GradeDistribution/>
         </div>
-
-        {/* <StudentTable /> */}
+        <TableStudentsData/>
       </main>
     </div>
   )

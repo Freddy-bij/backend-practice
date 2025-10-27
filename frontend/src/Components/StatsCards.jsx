@@ -37,14 +37,14 @@ const StatsCards = () => {
       {stats.map((stat) => {
         const Icon = stat.icon
         return (
-          <div key={stat.title}>
+          <div key={stat.title} className="bg-blue-50 p-5 rounded-xl text-gray-500">
             <div className="flex flex-row items-center justify-between pb-2">
               <h1 className="text-sm font-medium text-muted-foreground">{stat.title}</h1>
               <Icon className="h-4 w-4 text-muted-foreground" />
             </div>
-            <div>
-              <div className="text-2xl font-bold">{stat.value}</div>
-              <p className="text-xs text-muted-foreground mt-1">
+            <div className="pt-6">
+              <div className="text-2xl font-bold text-black">{stat.value}</div>
+              <p className="text-xs text-muted-foreground mt-1 ">
                 <span className="text-accent">{stat.change}</span> from last month
               </p>
             </div>

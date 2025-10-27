@@ -1,9 +1,4 @@
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Search, Download } from "lucide-react"
+import { Download, Search } from "lucide-react"
 
 const students = [
   { id: "STU001", name: "Emma Johnson", grade: "12", gpa: 3.85, attendance: 96, status: "Active" },
@@ -16,31 +11,31 @@ const students = [
   { id: "STU008", name: "Mason Taylor", grade: "11", gpa: 3.38, attendance: 91, status: "Active" },
 ]
 
-const StudentsTable = () => {
+const TableStudentsData = () => {
   return (
-   <Card>
-      <CardHeader>
+       <div>
+      <div>
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <CardTitle>Student Records</CardTitle>
-            <CardDescription>Detailed information for all enrolled students</CardDescription>
+            <h1>Student Records</h1>
+            <p>Detailed information for all enrolled students</p>
           </div>
           <div className="flex gap-2">
-            <div className="relative flex-1 md:flex-initial">
+            <div className="relative flex md:flex-initial">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input type="search" placeholder="Search students..." className="pl-8 md:w-[300px]" />
+              <input type="search" placeholder="Search students..." className="pl-8 md:w-[300px]" />
             </div>
-            <Button variant="outline" size="icon">
+            <button variant="outline" size="icon">
               <Download className="h-4 w-4" />
-            </Button>
+            </button>
           </div>
         </div>
-      </CardHeader>
-      <CardContent>
+      </div>
+      <div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-border">
+              <tr className="border-b-gray-500 border-border ">
                 <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Student ID</th>
                 <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Name</th>
                 <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Grade</th>
@@ -58,18 +53,18 @@ const StudentsTable = () => {
                   <td className="py-3 px-4 text-sm">{student.gpa.toFixed(2)}</td>
                   <td className="py-3 px-4 text-sm">{student.attendance}%</td>
                   <td className="py-3 px-4 text-sm">
-                    <Badge variant={student.status === "Active" ? "default" : "destructive"} className="text-xs">
+                    <button variant={student.status === "Active" ? "default" : "destructive"} className="text-xs">
                       {student.status}
-                    </Badge>
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }
 
-export default StudentsTable
+export default TableStudentsData

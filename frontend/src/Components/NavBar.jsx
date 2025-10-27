@@ -4,14 +4,15 @@
 import { Link } from 'react-router'
 import Login from './Login'
 import Register from './Register'
+import Logo from './Logo'
 
 const NavBar = () => {
-  // const [isChanged, setIsChanged] = useState(false); 
+ 
 
   return (
-    <div className='bg-gradient-to-r from-gray-500 to-purple-500 via-blue-400'>
+    <div className='bg-gradient-to-r from-gray-500/50 to-purple-500 via-blue-400'>
       <div className='flex justify-between items-center p-4 bg-amber-50/20 text-white'>
-        <h1 className='font-bold text-2xl'>SCHOOLS<span className='text-blue-500'>DATA</span></h1>
+       <Logo/>
         <div className='space-x-4'>
            <Link to="login"><button className="bg-blue-500 px-4 py-2 rounded font-medium">signIn</button></Link> 
            <Link to="/"><button className="bg-gray-800 px-4 py-2 rounded font-medium" > signUp</button></Link> 
