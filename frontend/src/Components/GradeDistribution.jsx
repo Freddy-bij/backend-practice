@@ -11,12 +11,12 @@ const gradeData = [
 
 const GradeDistribution = () => {
     return (
-        <div className='bg-white rounded-2xl'>
-            <div>
-                <h1>Grade Distribution</h1>
-                <p>Current semester grade breakdown</p>
+        <div className='bg-white rounded-2xl py-4 '>
+            <div className='px-5'>
+                <h1 className='text-xl font-bold'>Grade Distribution</h1>
+                <p className='text-md text-gray-500'>Current semester grade breakdown</p>
             </div>
-            <div className='mt-4 h-64'>
+            <div className='mt-4 h-64 mr-6'>
                 <ResponsiveContainer className="w-full h-full">
                     <BarChart data={gradeData}>
                         <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />

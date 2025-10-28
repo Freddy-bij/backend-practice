@@ -11,17 +11,17 @@ const data = [
   { month: "Aug", students: 1284 },
 ]
 
-const Recharts = () => {
+const EnrollmentTrend = () => {
   return (
-     <div className='bg-white rounded-2xl'>
-      <div>
-        <h1>Enrollment Trend</h1>
-        <p>Student enrollment over the past 8 months</p>
+     <div className='bg-white rounded-2xl py-4 px-4'>
+      <div className=''>
+        <h1 className='text-xl font-bold'>Enrollment Trend</h1>
+        <p className=' text-gray-500'>Student enrollment over the past 8 months</p>
       </div>
       <div className='m-4 h-64'> 
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-            <Line type="monotone" dataKey="students" stroke='#2196F3' strokeWidth={2} />
+            <Line type="monotone" dataKey="students" stroke='#2196F3'  strokeWidth={2} />
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey='month' />
             <YAxis tick={{ fill: "hsl(var(--muted-foreground))" }} />
@@ -36,4 +36,4 @@ const Recharts = () => {
   )
 }
 
-export default Recharts
+export default EnrollmentTrend
