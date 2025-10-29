@@ -1,18 +1,43 @@
 import mongoose from "mongoose";
 
-
 const informationStudentSchema = mongoose.Schema(
-{
-    classe: String,
-    section: String,
-    rollNumber: String,
+{   
+    firstName: {
+        type: String,
+        required: true,
+        trim: true,
+
+    },
+    lastName:{
+        type:String,
+        required: true,
+        trim: true,
+    },
+    email: {
+        type:String,
+        required: true,
+        unique: true,
+        lowercase: true,
+    },
+    grade: {
+        type: String,
+        required: true,
+    },
+    class: {
+        type: String,
+        trim: true,
+    },
+    attendance: {
+        type: Number,
+        default:0
+    },
     age: Number,
-    address: String,
-    phone: Number,
-    student : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"Student",
-        required: true
+    adress: String,
+    phone:String,
+    status:{
+        type: String,
+        enum: ["Active" , "Warning"],
+        default: "Active"
     }
 },
 {timestamps:true}
