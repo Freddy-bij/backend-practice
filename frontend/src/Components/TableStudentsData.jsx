@@ -46,7 +46,7 @@ const TableStudentsData = () => {
                 <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">GPA</th>
                 <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Attendance</th>
                 <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Status</th>
-                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Status</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -65,9 +65,13 @@ const TableStudentsData = () => {
                       {student.status}
                     </button>
                   </td>
-                  <td className=" py-3 px-4 text-sm flex items-center gap-1">
-                    <Eye className=" h-4 w-4"/>
+                  <td className=" py-3 px-4 text-sm   " >
+                    <div className="flex items-center gap-1 hover:bg-blue-400 hover:px-1 hover:py-0.5 rounded hover:text-white ">
+
+                       <Eye className=" h-4 w-4"/>
                     <button>view</button>
+                    </div>
+                   
                   </td>
                 </tr>
               ))}

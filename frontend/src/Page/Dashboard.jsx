@@ -11,16 +11,23 @@ import { useState } from "react"
 
 import Select from 'react-select';
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
+const optionsA = [
+  { value: 'Section A', label: 'Section A' },
+  { value: 'Section B', label: 'Section B' },
+  { value: 'Section C', label: 'Section C' }
+]
+
+const optionsB = [
+  { value: 'Grade 10th', label: 'Grade 10th' },
+  { value: 'Grade 11th', label: 'Grade 11th' },
+  { value: 'Grade 12th', label: 'Grade 12th' }
 ]
 
 const groupStyles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  
 };
 const groupBadgeStyles = {
   
@@ -71,50 +78,50 @@ const Dashboard = () => {
                   <X className='w-4 h-4 ' onClick={() => setIsAddStudentDialog(false)} />
                 </div>
 
-                <p className="text-sm text-gray-500">Enter the student information below to add them to the system.</p>
+                <p className="text-sm text-gray-500 mb-3">Enter the student information below to add them to the system.</p>
                 <form >
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 pb-3">
                     <div>
-                      <label>First Name</label><br></br>
-                      <input type="text" className="border border-gray-400 rounded" />
+                      <label className="">First Name</label><br></br>
+                      <input type="text" className="border border-gray-400 rounded " />
                     </div>
                     <div>
                       <label>First Name</label><br></br>
-                      <input type="text" className="border border-gray-400 rounded" />
+                      <input type="text" className="border border-gray-400 rounded " />
                     </div>
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col pb-3">
                     <label>Email</label>
                     <input type="text" className="border border-gray-400 rounded" />
                   </div>
                   <div className="flex flex-col">
                     <label>Phone Number</label>
-                    <input type="text" className="border border-gray-400 rounded" />
+                    <input type="text" className="border border-gray-400 rounded mb-3" />
                   </div>
-                  <div className="flex gap-20 py-2">
+                  <div className="flex gap-20 py-2 mb-3">
                     <div>
                       <Select
 
-                    options={options}
+                    options={optionsA}
                     formatGroupLabel={formatGroupLabel}
                   />
                     </div>
                       <div>
                       <Select
 
-                    options={options}
+                    options={optionsB}
                     formatGroupLabel={formatGroupLabel}
                   />
                     </div>
 
                   </div>
 
-                  <div className="flex flex-col">
+                  <div className="flex flex-col mb-3">
                     <label>Adress</label>
                    <input type="text" className="border border-gray-400 rounded" />
                   </div>
                   <div className="flex items-center justify-end py-2 gap-2">
-                    <button className="bg-white border border-gray-400 rounded px-1 py-0.5">Cancel</button>
+                    <button className="bg-white border border-gray-400 rounded px-1 py-0.5"onClick={() => setIsAddStudentDialog(false)}>Cancel</button>
                     <button className="bg-blue-400 border border-gray-400 rounded px-1 py-0.5 text-white" > Add Student</button>
                   </div>
                   
