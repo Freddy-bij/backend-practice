@@ -1,17 +1,22 @@
 import InformationStudent from "../models/informationStudent.model.js";
 
 export const createStudentInfo = async ( req , res) => {
-    const { age , address, classe, phone, rollNumber , section } = req.body;
+    const { firstName, lastName, attendance, age , address, Class, phone, status, section } = req.body;
     const {student} = req.body
     try {
         const informations = await InformationStudent.create({
+            firstName,
+            lastName,
+            email,
+            grade,
+            attendance,
             age,
             address,
-            classe,
+            Class,
             phone,
-            rollNumber,
-            section,
-            student
+            status,
+            combination,
+            
         });
         res.status(201).json({ informations, message: "student information submitted successfully!"});
 

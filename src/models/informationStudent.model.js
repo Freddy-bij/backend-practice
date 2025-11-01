@@ -23,9 +23,13 @@ const informationStudentSchema = mongoose.Schema(
         type: String,
         required: true,
     },
-    class: {
+    Class: {
         type: String,
         trim: true,
+    },
+    combination: {
+        type:String,
+        required: true,
     },
     attendance: {
         type: Number,
