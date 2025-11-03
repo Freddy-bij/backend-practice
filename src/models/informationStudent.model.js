@@ -22,8 +22,9 @@ const informationStudentSchema = mongoose.Schema(
     grade: {
         type: String,
         required: true,
+        default: "N/A"
     },
-    Class: {
+    classe: {
         type: String,
         trim: true,
     },
@@ -36,7 +37,11 @@ const informationStudentSchema = mongoose.Schema(
         default:0
     },
     age: Number,
-    adress: String,
+    address:{
+        type: String,
+        required: true,
+        trim: true
+    },
     phone:String,
     status:{
         type: String,
