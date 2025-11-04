@@ -4,8 +4,6 @@ import React from 'react'
 const Logo = () => {
   return (
     <div>
-       
-
           <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary bg-blue-400 text-white ">
             <GraduationCap className="h-6 w-6 text-primary-foreground" />
