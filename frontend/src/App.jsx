@@ -4,7 +4,7 @@ import Layout from "./Components/Layout"
 import Register from "./Components/Register"
 import Login from "./Components/Login"
 import { AuthContextProvider } from "./context/AuthContext"
-import Home from "./Page/Home"
+
 import Dashboard from "./Page/Dashboard"
 
 
@@ -18,7 +18,6 @@ const App = () => {
               <Route index element={<Register/>}/>
               <Route path="login" element={<Login/>}/>
         </Route>
-        <Route  path="home" element={<Home/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
       </Routes>
       </BrowserRouter>

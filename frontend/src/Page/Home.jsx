@@ -11,16 +11,16 @@ import { useState } from "react"
 
 import Select from 'react-select';
 
+
 const optionsA = [
-  { value: 'Section A', label: 'Section A' },
-  { value: 'Section B', label: 'Section B' },
-  { value: 'Section C', label: 'Section C' }
+  { value: 'male', label: 'Male' },
+  { value: 'memale', label: 'Female' },
 ]
 
 const optionsB = [
-  { value: 'Grade 10th', label: 'Grade 10th' },
-  { value: 'Grade 11th', label: 'Grade 11th' },
-  { value: 'Grade 12th', label: 'Grade 12th' }
+  { value: 'grade 10th', label: 'Grade 10th' },
+  { value: 'grade 11th', label: 'Grade 11th' },
+  { value: 'grade 12th', label: 'Grade 12th' }
 ]
 
 const groupStyles = {
@@ -51,16 +51,22 @@ const formatGroupLabel = () => (
   </div>
 );
 
-const Home = () => {
+const HomePage = () => {
   const [isAddStudentDialog, setIsAddStudentDialog] = useState(false)
   return (
-    <div className="min-h-screen bg-gray-200 relative ">
-      <Header />
-      <main className="container mx-auto p-6 space-y-6">
+    <div className="  relative ">
+      
+      <main className="container mx-auto  space-y-6">
         <div className="flex justify-between items-center">
+       
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-balance">Student Data</h1>
-            <p className="text-muted-foreground mt-2 text-gray-500">Comprehensive overview of student information and analytics</p>
+            <section className="animate-slide-up" style={{ animationDelay: "1000ms" }}>
+              <h3 className="text-2xl font-semibold text-white  flex items-center">
+                <div className="w-1 h-8 bg-gradient-to-b from-green-500 to-emerald-500 rounded-full mr-4"></div>
+                 Student Data
+              </h3>
+            </section>
+            <p className="text-muted-foreground mt-2 text-gray-300">Comprehensive overview of student information and analytics</p>
           </div>
 
           <div className="flex items-center gap-2 bg-blue-400 text-white rounded-md  px-4 py-1.5" onClick={() => setIsAddStudentDialog(true)}>
@@ -70,66 +76,218 @@ const Home = () => {
         </div>
         {isAddStudentDialog && (
           <div className=" flex flex-col  items-center   w-4/5 mx-auto p-6  absolute h-[60%]   z-1000">
-            <div>
+          
+           
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
 
-              <div className='bg-white p-4 rounded-xl border border-gray-400 fixed-'>
-                <div className='flex justify-between'>
-                  <h1 className="text-xl font-bold">Add New Student</h1>
-                  <X className='w-4 h-4 ' onClick={() => setIsAddStudentDialog(false)} />
+              <div className="animate-fade-in">
+                       <div className='flex justify-between'>
+                   <h1 className="text-3xl font-bold text-gray-800 mb-6">Add New Student</h1>
+                  <X className='w-4 h-4 hover:text-blue-400 ' onClick={() => setIsAddStudentDialog(false)} />
+                </div>
+              <form className="space-y-8">
+                {/* Personal Information Section */}
+                
+                <div>
+                  <h2 className="text-xl font-semibold text-[#37507E] mb-4 flex items-center">
+                    <div className="w-1 h-6 bg-gradient-to-b from-[#37507E] to-[#FF6B6B] rounded-full mr-3"></div>
+                    Personal Information
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="firstName" className="text-gray-700">
+                        First Name *
+                      </label>
+                      <input
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Enter first name"
+                      
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
+                    </div>
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="lastName" className="text-gray-700">
+                        Last Name *
+                      </label>
+                      <input
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Enter last name"
+                      
+                        className="border-gray-300 focus:border-[#37507E]  focus:ring-[#37507E] border outline-none rounded"
+                      />
+                    </div>
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="dateOfBirth" className="text-gray-700">
+                        Date of Birth *
+                      </label>
+                      <input
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                        type="date"
+                        
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="gender" className="text-gray-700">
+                        Gender *
+                      </label>
+                      <Select
+                           options={optionsA}
+                    formatGroupLabel={formatGroupLabel}
+                      />
+
+                    
+                        
+                    </div>
+                  </div>
                 </div>
 
-                <p className="text-sm text-gray-500 mb-3">Enter the student information below to add them to the system.</p>
-                <form >
-                  <div className="flex gap-2 pb-3">
-                    <div>
-                      <label className="">First Name</label><br></br>
-                      <input type="text" className="border border-gray-400 rounded " />
+                {/* Contact Information Section */}
+                <div>
+                  <h2 className="text-xl font-semibold text-[#37507E] mb-4 flex items-center">
+                    <div className="w-1 h-6 bg-gradient-to-b from-[#37507E] to-[#FF6B6B] rounded-full mr-3"></div>
+                    Contact Information
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="email" className="text-gray-700">
+                        Email Address
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        
+                        placeholder="student@example.com"
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
                     </div>
-                    <div>
-                      <label>First Name</label><br></br>
-                      <input type="text" className="border border-gray-400 rounded " />
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="phone" className="text-gray-700">
+                        Phone Number
+                      </label>
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="+1 (555) 000-0000"
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
+                    </div>
+                    <div className="space-y-2 md:col-span-2 flex flex-col">
+                      <label htmlFor="address" className="text-gray-700">
+                        Home Address *
+                      </label>
+                      <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Enter full address"
+                        rows={3}
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
                     </div>
                   </div>
-                  <div className="flex flex-col pb-3">
-                    <label>Email</label>
-                    <input type="text" className="border border-gray-400 rounded" />
-                  </div>
-                  <div className="flex flex-col">
-                    <label>Phone Number</label>
-                    <input type="text" className="border border-gray-400 rounded mb-3" />
-                  </div>
-                  <div className="flex gap-20 py-2 mb-3">
-                    <div>
-                      <Select
+                </div>
 
-                    options={optionsA}
+                {/* Parent/Guardian Information Section */}
+                <div>
+                  <h2 className="text-xl font-semibold text-[#37507E] mb-4 flex items-center">
+                    <div className="w-1 h-6 bg-gradient-to-b from-[#37507E] to-[#FF6B6B] rounded-full mr-3"></div>
+                    Parent/Guardian Information
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="parentName" className="text-gray-700">
+                        Parent/Guardian Name *
+                      </label>
+                      <input
+                        id="parentName"
+                        name="parentName"
+                        placeholder="Enter parent/guardian name"
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
+                    </div>
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="parentPhone" className="text-gray-700">
+                        Parent Phone Number *
+                      </label>
+                      <input
+                        id="parentPhone"
+                        name="parentPhone"
+                        type="tel"
+                        placeholder="+1 (555) 000-0000"
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
+                    </div>
+                    <div className="space-y-2 md:col-span-2 flex flex-col">
+                      <label htmlFor="parentEmail" className="text-gray-700">
+                        Parent Email Address *
+                      </label>
+                      <input
+                        id="parentEmail"
+                        name="parentEmail"
+                        type="email"
+                        placeholder="parent@example.com"
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Academic Information Section */}
+                <div>
+                  <h2 className="text-xl font-semibold text-[#37507E] mb-4 flex items-center">
+                    <div className="w-1 h-6 bg-gradient-to-b from-[#37507E] to-[#FF6B6B] rounded-full mr-3"></div>
+                    Academic Information
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label htmlFor="grade" className="text-gray-700">
+                        Grade/Class *
+                      </label>
+                      <Select 
+                              options={optionsB}
                     formatGroupLabel={formatGroupLabel}
-                  />
+                      />
+                     
                     </div>
-                      <div>
-                      <Select
-
-                    options={optionsB}
-                    formatGroupLabel={formatGroupLabel}
-                  />
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="enrollmentDate" className="text-gray-700">
+                        Enrollment Date *
+                      </label>
+                      <input
+                        id="enrollmentDate"
+                        name="enrollmentDate"
+                        type="date"
+                        className="border-gray-300 focus:border-[#37507E] focus:ring-[#37507E] border outline-none rounded"
+                      />
                     </div>
-
                   </div>
+                </div>
 
-                  <div className="flex flex-col mb-3">
-                    <label>Adress</label>
-                   <input type="text" className="border border-gray-400 rounded" />
-                  </div>
-                  <div className="flex items-center justify-end py-2 gap-2">
-                    <button className="bg-white border border-gray-400 rounded px-1 py-0.5"onClick={() => setIsAddStudentDialog(false)}>Cancel</button>
-                    <button className="bg-blue-400 border border-gray-400 rounded px-1 py-0.5 text-white" > Add Student</button>
-                  </div>
-                  
-                </form>
-
-
-              </div>
+                {/* Form Actions */}
+                <div className="flex justify-end space-x-4 pt-6 border-t border-gray-200">
+                  <button
+                    type="button"
+                    variant="outline"
+                    
+                    className="border-gray-300 text-gray-700 hover:bg-gray-100"
+                  >
+                    Clear Form
+                  </button>
+                  <button
+                    type="submit"
+                    className="bg-gradient-to-r from-[#37507E] to-[#37507E]/80 hover:from-[#37507E]/90 hover:to-[#37507E]/70 text-white"
+                  >
+                    Register Student
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
 
           </div>
 
@@ -150,4 +308,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage
