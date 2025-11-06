@@ -55,14 +55,7 @@ const Dashboard = () => {
 
   const sidebarItems = [
     { icon: Home, label: "Home", active: activeSection === "home", url: "/", section: "home" },
-    {
-      icon: Plus,
-      label: "Add Student",
-      hasSubmenu: true,
-      url: "new-student",
-      section: "add-student",
-      active: activeSection === "add-student",
-    },
+ 
     {
       icon: Package,
       label: "Attendance Students",
@@ -99,15 +92,7 @@ const Dashboard = () => {
 
   const renderContent = () => {
     switch (activeSection) {
-      case "add-student":
-        return (
-          <div className="animate-fade-in">
-            <h1 className="text-3xl font-bold text-white mb-6">Add New Student</h1>
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <p className="text-gray-600">Student registration form will go here</p>
-            </div>
-          </div>
-        )
+     
       case "students":
         return (
           <div className="animate-fade-in">
@@ -138,6 +123,15 @@ const Dashboard = () => {
             <h1 className="text-3xl font-bold text-white mb-6">Courses Management</h1>
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <p className="text-gray-600">Course list and management will go here</p>
+            </div>
+          </div>
+        )
+       case "student":
+        return (
+          <div className="animate-fade-in">
+            <h1 className="text-3xl font-bold text-white mb-6">Student Attendance</h1>
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <p className="text-gray-600">Student attendance details will go here</p>
             </div>
           </div>
         )
@@ -232,7 +226,7 @@ const Dashboard = () => {
             variant="ghost"
             size="icon"
             onClick={toggleSidebar}
-            className="lg:hidden text-[#37507E] hover:bg-gray-100 transition-all duration-300"
+            className="lg:hidden text-[#37507E] hover:bg-gray-100 rounded-full transition-all duration-300"
           >
             <X className="h-6 w-6" />
           </button>
