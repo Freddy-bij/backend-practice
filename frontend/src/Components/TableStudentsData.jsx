@@ -1,4 +1,6 @@
-import { Download, Eye, Search, View, ViewIcon } from "lucide-react"
+import { Download, Eye, Search, Section, View, ViewIcon } from "lucide-react"
+import { useState } from "react"
+import { Label } from "recharts"
 
 const students = [
   { id: "STU001", name: "Emma Johnson", grade: "12", gpa: 3.85, attendance: 96, status: "Active" },
@@ -12,31 +14,123 @@ const students = [
 ]
 
 const TableStudentsData = () => {
+  const [activeTab , setActiveTable] = useState('s1')
 
+  const handleTabClick = (section) => {
+     setActiveTable(section)
+  }
 
+   const tabItems =[
+    {id: "S1" ,  label: "S1" , active: activeTab === "s1" , url: "/" , section: "s1"},
+    {id: "S2" ,  label: "S2" , active: activeTab === "s2" , url: "s2" , section: "s1"},
+    {id: "S3" ,  label: "S3" , active: activeTab === "s3" , url: "s3" , section: "s1"},
+    {id: "S4" ,  label: "S4" , active: activeTab === "s4" , url: "s4" , section: "s1"},
+    {id: "S5" ,  label: "S5" , active: activeTab === "s5" , url: "s5" , section: "s1"},
+    {id: "S6" ,  label: "S6" , active: activeTab === "s6" , url: "s6" , section: "s1"},
+ 
+   ]
 
-  
-  return (
-       <div className="bg-white shadow-md p-8 rounded-2xl">
-      <div>
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h1 className="text-xl font-bold">Student Records</h1>
-            <p className=" text-gray-500">Detailed information for all enrolled students</p>
+ const renderTabItem = ()  => {
+   switch(activeTab){
+       case 's2':
+        return (
+          <div className="overflow-x-auto border rounded-xl border-gray-500 mt-2">
+            <table className="w-full">
+              <thead>
+                 <tr className="border-b ">
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Student ID</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Name</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Grade</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">GPA</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Attendance</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Status</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Action</th>
+              </tr>
+              </thead>
+                
+            </table>
           </div>
-          <div className="flex gap-2">
-            <div className="relative flex md:flex-initial">
-              <Search className="absolute left-2.5 top-1.5 h-4 w-4 text-muted-foreground text-gray-500" />
-              <input type="search" placeholder="Search students..." className="pl-8 md:w-[300px] border border-gray-500 shadow-sm outline-none rounded py-0.5 placeholder-gray-500" />
-            </div>
-            <button variant="outline" size="icon">
-              <Download className="h-4 w-4 text-gray-500" />
-            </button>
+        )
+        case 's3':
+        return (
+           <div className="overflow-x-auto border rounded-xl border-gray-500 mt-2">
+            <table className="w-full">
+              <thead>
+                 <tr className="border-b ">
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Student ID</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Name</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Grade</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">GPA</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Attendance</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Status</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Action</th>
+              </tr>
+              </thead>
+                
+            </table>
           </div>
-        </div>
-      </div>
-      <div>
-        <div className="overflow-x-auto border rounded-xl border-gray-500 mt-2">
+        )
+        case 's4':
+        return (
+           <div className="overflow-x-auto border rounded-xl border-gray-500 mt-2">
+            <table className="w-full">
+              <thead>
+                 <tr className="border-b ">
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Student ID</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Name</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Grade</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">GPA</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Attendance</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Status</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Action</th>
+              </tr>
+              </thead>
+                
+            </table>
+          </div>
+        )
+        case 's5':
+        return (
+           <div className="overflow-x-auto border rounded-xl border-gray-500 mt-2">
+            <table className="w-full">
+              <thead>
+                 <tr className="border-b ">
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Student ID</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Name</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Grade</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">GPA</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Attendance</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Status</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Action</th>
+              </tr>
+              </thead>
+                
+            </table>
+          </div>
+        )
+        case 's6':
+        return (
+         <div className="overflow-x-auto border rounded-xl border-gray-500 mt-2">
+            <table className="w-full">
+              <thead>
+                 <tr className="border-b ">
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Student ID</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Name</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Grade</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">GPA</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Attendance</th>
+                <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Status</th>
+                  <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">Action</th>
+              </tr>
+              </thead>
+                
+            </table>
+          </div>
+        )
+
+        default:
+          return (
+             <div className="overflow-x-auto border rounded-xl border-gray-500 mt-2">
           <table className="w-full  ">
             <thead>
               <tr className="border-b ">
@@ -78,6 +172,57 @@ const TableStudentsData = () => {
             </tbody>
           </table>
         </div>
+          )
+
+       
+   }
+ }
+
+  
+  return (
+       <div className="bg-white shadow-md p-8 rounded-2xl">
+      <div>
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h1 className="text-xl font-bold">Student Records</h1>
+            <p className=" text-gray-500">Detailed information for all enrolled students</p>
+          </div>
+          <div className="flex gap-2">
+            <div className="relative flex md:flex-initial">
+              <Search className="absolute left-2.5 top-1.5 h-4 w-4 text-muted-foreground text-gray-500" />
+              <input type="search" placeholder="Search students..." className="pl-8 md:w-[300px] border border-gray-500 shadow-sm outline-none rounded py-0.5 placeholder-gray-500" />
+            </div>
+            <button variant="outline" size="icon">
+              <Download className="h-4 w-4 text-gray-500" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="">
+        <div>
+          <h2 className="font-semibold mt-6">Total Students: {students.length}</h2>
+        </div>
+         <div className="bg-gray-800 text-white font-bold px-4 py-2 rounded-xl ">
+             <div className="flex justify-between gap-3 ">
+          {tabItems.map((item) =>(
+        
+                <button
+                onClick={() => handleTabClick(item.id.toLocaleLowerCase())}
+                className={` w-full ${item.active ? 'bg-blue-400' : ''}  px-4 py-2 rounded-lg `}
+           >
+            <div>{item.label}</div>
+          </button>
+     
+      
+           
+          ))}
+           </div>
+         
+          
+         </div>
+       <div>
+        {renderTabItem()}
+       </div>
       </div>
     </div>
   )

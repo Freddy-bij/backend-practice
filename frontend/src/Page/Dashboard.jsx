@@ -214,11 +214,11 @@ const Dashboard = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-72 h-screen bg-blue-400 ${
+        className={`fixed inset-y-0 left-0 z-50 w-72 h-screen bg-gray-200 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } transition-all duration-500 ease-out lg:translate-x-0 shadow-xl`}
       >
-        <div className="flex items-center justify-between h-20 px-6 border-b border-gray-200">
+        <div className="flex items-center justify-between h-20 px-6 border-b border-gray-800">
           <Link to="/dashboard">
             <Logo />
           </Link>
@@ -285,7 +285,7 @@ const Dashboard = () => {
       {/* Main Content */}
       <div className="flex-1 lg:ml-72 relative flex flex-col h-screen overflow-y-auto">
         {/* Header */}
-        <header className="border-b border-gray-200 sticky top-0 z-30 bg-white">
+        <header className="border-b border-gray-200 sticky top-0 z-30 bg-gray-200">
           <div className="flex items-center justify-between px-6 py-4">
             <div className="flex items-center space-x-4">
               <button
